@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Box 3 - Hello Unit, Page 7</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Nunito', 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 48px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .header { text-align: center; margin-bottom: 28px; }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.2rem;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 28px;
+            border-radius: 40px;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            font-weight: 700;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            border: none;
+            padding: 14px 22px;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            font-family: 'Nunito', sans-serif;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #1a1a2e;
+            border-color: transparent;
+            box-shadow: 0 8px 30px rgba(247, 151, 30, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { display: none; animation: fadeSlide 0.5s ease forwards; }
+        .tab-content.active { display: block; }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-container { text-align: center; margin-bottom: 25px; }
+        .image-container img {
+            max-width: 100%;
+            max-height: 650px;
+            width: auto;
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .prep-scene {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 32px;
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+            margin: 15px 0;
+        }
+
+        .section-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8rem;
+            color: #ffd200;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sil-image {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+        .sil-image img {
+            max-width: 100%;
+            max-height: 420px;
+            width: auto;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+            background: #fff;
+            padding: 10px;
+        }
+
+        /* ================= PARK SCENE ================= */
+        .park-scene {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 20px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .park-scene img.park-img {
+            width: 100%;
+            display: block;
+        }
+
+        .park-overlay {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .park-overlay .overlay-input {
+            width: 120px;
+            padding: 9px 12px;
+            border-radius: 14px;
+            border: 2px solid #ffd200;
+            background: #0f0c29;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            text-align: center;
+            outline: none;
+            transition: all 0.25s;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+        }
+
+        .park-overlay .overlay-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 600;
+        }
+
+        .park-overlay .overlay-input:focus {
+            border-color: #ffd200;
+            background: #0f0c29;
+            box-shadow: 0 0 18px rgba(255, 210, 0, 0.7);
+        }
+
+        .park-overlay .overlay-input.correct {
+            border-color: #4ade80;
+            background: #0f0c29;
+            color: #4ade80;
+        }
+        .park-overlay .overlay-input.wrong {
+            border-color: #f87171;
+            background: #0f0c29;
+            color: #f87171;
+        }
+
+        .park-text {
+            background: rgba(255, 210, 0, 0.06);
+            padding: 22px 28px;
+            border-radius: 24px;
+            border-left: 6px solid #ffd200;
+            color: #fff;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .sil-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .sil-card {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            padding: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        .sil-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #1a1a2e;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .sil-select {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 210, 0, 0.5);
+            background: rgba(255, 255, 255, 0.9);
+            color: #1a1a2e;
+            font-weight: 700;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .sil-select:focus { box-shadow: 0 0 15px rgba(255, 210, 0, 0.6); border-color: #ffd200; }
+        .sil-select.correct { border-color: #4ade80; background: #e8f5e9; }
+        .sil-select.wrong { border-color: #f87171; background: #ffebee; }
+
+        /* ---- Correct the sentences ---- */
+        .corr-list { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+
+        .corr-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 14px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            flex-wrap: wrap;
+        }
+
+        .corr-num {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #1a1a2e;
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex: 0 0 auto;
+        }
+
+        .corr-text {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+
+        .corr-input {
+            flex: 1 1 260px;
+            min-width: 220px;
+            padding: 12px 20px;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 210, 0, 0.4);
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-size: 1.05rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .corr-input::placeholder { color: rgba(255,255,255,0.35); font-weight: 600; }
+        .corr-input:focus { border-color: #ffd200; background: rgba(255, 210, 0, 0.06); }
+        .corr-input.correct { border-color: #4ade80; background: rgba(74, 222, 128, 0.1); }
+        .corr-input.wrong { border-color: #f87171; background: rgba(248, 113, 113, 0.1); }
+
+        .yn2-list { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+
+        .yn2-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 14px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            flex-wrap: wrap;
+        }
+
+        .yn2-num {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #1a1a2e;
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex: 0 0 auto;
+        }
+
+        .yn2-text {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex: 1 1 280px;
+        }
+
+        .yn2-input {
+            flex: 1 1 240px;
+            min-width: 200px;
+            padding: 12px 20px;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 210, 0, 0.4);
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-size: 1.05rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .yn2-input::placeholder { color: rgba(255,255,255,0.35); font-weight: 600; }
+        .yn2-input:focus { border-color: #ffd200; background: rgba(255, 210, 0, 0.06); }
+        .yn2-input.correct { border-color: #4ade80; background: rgba(74, 222, 128, 0.1); }
+        .yn2-input.wrong { border-color: #f87171; background: rgba(248, 113, 113, 0.1); }
+
+        .phrase-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            background: rgba(255, 210, 0, 0.06);
+            padding: 16px 20px;
+            border-radius: 24px;
+            border: 1px dashed rgba(255, 210, 0, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .phrase-bank span {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 7px 16px;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 210, 0, 0.4);
+            color: #ffd200;
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .lyrics {
+            background: rgba(255, 210, 0, 0.06);
+            padding: 22px 28px;
+            border-radius: 24px;
+            border-left: 6px solid #ffd200;
+            color: #fff;
+            font-size: 1.15rem;
+            line-height: 2;
+            font-weight: 700;
+            white-space: pre-line;
+            text-align: center;
+        }
+
+        .audio-control {
+            text-align: center;
+            margin: 15px 0;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .audio-status {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 700;
+        }
+
+        .btn {
+            border: none;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            font-family: 'Nunito', sans-serif;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:active { transform: scale(0.95); }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #1a1a2e;
+            box-shadow: 0 8px 30px rgba(247, 151, 30, 0.3);
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(247, 151, 30, 0.45); }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+        }
+        .btn-glass:hover { background: rgba(255, 255, 255, 0.14); transform: translateY(-3px); }
+
+        .btn-blue {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(96, 165, 250, 0.25);
+        }
+        .btn-blue:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(96, 165, 250, 0.35); }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 15px 0 5px;
+        }
+
+        .feedback-box {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            min-height: 3rem;
+            padding: 12px;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            margin: 15px 0;
+        }
+        .feedback-box .highlight { color: #ffd200; }
+        .feedback-box .correct { color: #4ade80; }
+        .feedback-box .wrong { color: #f87171; }
+
+        .yn-btn {
+            border: none;
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 800;
+            font-family: 'Nunito', sans-serif;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(4px);
+        }
+
+        .yn-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.14);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .yn-btn.active-yes,
+        .yn-btn.active-no {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #1a1a2e;
+            border-color: transparent;
+            box-shadow: 0 8px 30px rgba(247, 151, 30, 0.4);
+        }
+
+        .yn-feedback {
+            font-size: 1.5rem;
+            font-weight: 800;
+            min-width: 34px;
+            text-align: center;
+        }
+        .yn-feedback.ok { color: #4ade80; }
+        .yn-feedback.err { color: #f87171; }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            background: rgba(74, 222, 128, 0.06);
+            padding: 18px 20px;
+            border-radius: 24px;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            margin-bottom: 22px;
+        }
+
+        .word-bank span {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 8px 18px;
+            border-radius: 40px;
+            border: 2px solid rgba(74, 222, 128, 0.4);
+            color: #4ade80;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .pc-list { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+
+        .pc-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 14px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            flex-wrap: wrap;
+        }
+
+        .pc-row .q-text {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+
+        .pc-row .input-field {
+            flex: 1 1 300px;
+            min-width: 250px;
+            padding: 12px 20px;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 210, 0, 0.4);
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-size: 1.05rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .pc-row .input-field:focus { border-color: #ffd200; background: rgba(255, 210, 0, 0.06); }
+        .pc-row .input-field.correct { border-color: #4ade80; background: rgba(74, 222, 128, 0.1); }
+        .pc-row .input-field.wrong { border-color: #f87171; background: rgba(248, 113, 113, 0.1); }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 18px;
+        }
+
+        @media (max-width: 900px) {
+            .park-overlay .overlay-input { width: 80px; font-size: 0.75rem; padding: 4px 6px; }
+        }
+
+        @media (max-width: 700px) {
+            .header h1 { font-size: 2.2rem; }
+            .container { padding: 16px; }
+            .prep-scene { padding: 16px; }
+            .feedback-box { font-size: 1rem; padding: 10px; }
+            .tab-btn { padding: 10px 16px; font-size: 0.8rem; }
+            .sil-grid { grid-template-columns: 1fr; }
+            .yn2-row, .corr-row { flex-direction: column; align-items: flex-start; }
+            .yn2-text, .corr-text { white-space: normal; }
+            .yn2-input, .corr-input { width: 100%; min-width: 0; }
+            .pc-row { flex-direction: column; align-items: flex-start; }
+            .pc-row .input-field { width: 100%; min-width: 0; }
+            .pc-row .q-text { white-space: normal; }
+            .image-container img { max-height: 400px; }
+            .park-overlay .overlay-input { width: 60px; font-size: 0.6rem; padding: 3px 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>🎈 Hello Unit — Page 7</h1>
+            <span class="subtitle">🌟 Match, listen, sing and answer! 🌟</span>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="tab-match1">🔗 1. Match and write</button>
+            <button class="tab-btn" data-tab="tab-questions2">❓ 2. Answer the questions</button>
+            <button class="tab-btn" data-tab="tab-park">🌳 3. Read, match & correct</button>
+            <button class="tab-btn" data-tab="tab-song">🎵 Song & Lyrics</button>
+            <button class="tab-btn" data-tab="tab-yesno">✅ Say 'yes' or 'no'</button>
+            <button class="tab-btn" data-tab="tab-pc">✍️ What is he / she doing?</button>
+        </div>
+
+        <!-- ============ 1. MATCH ============ -->
+        <div class="tab-content active" id="tab-match1">
+            <div class="prep-scene">
+                <div class="section-title">1. Match and write</div>
+
+                <div class="sil-image">
+                    <img src="shadows.png" alt="Silhouettes"
+                         onerror="this.parentNode.innerHTML='<p style=\'color:#ffd200;text-align:center;font-weight:700;\'>⚠ Не найдена картинка <b>shadows.png</b>. Положите её рядом с HTML-файлом.</p>'">
+                </div>
+
+                <div class="sil-grid" id="silGrid"></div>
+
+                <div class="btn-group" style="margin-top: 20px;">
+                    <button class="btn btn-blue" id="checkSilBtn">✅ Check</button>
+                    <button class="btn btn-glass" id="resetSilBtn">🔄 Reset</button>
+                </div>
+                <div class="feedback-box" id="silFeedback">
+                    👆 Выбери имя для каждого силуэта и нажми <span class="highlight">Check</span>!
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ 2. ANSWER THE QUESTIONS ============ -->
+        <div class="tab-content" id="tab-questions2">
+            <div class="prep-scene">
+                <div class="section-title">2. Now answer the questions</div>
+
+                <div class="sil-image">
+                    <img src="shadows.png" alt="Silhouettes"
+                         onerror="this.parentNode.innerHTML='<p style=\'color:#ffd200;text-align:center;font-weight:700;\'>⚠ Не найдена картинка <b>shadows.png</b>.</p>'">
+                </div>
+
+                <div class="phrase-bank">
+                    <span>Yes, he is.</span>
+                    <span>No, he isn't.</span>
+                    <span>Yes, she is.</span>
+                    <span>No, she isn't.</span>
+                </div>
+
+                <div class="yn2-list" id="yn2List"></div>
+
+                <div class="btn-group" style="margin-top: 20px;">
+                    <button class="btn btn-blue" id="checkYn2Btn">✅ Check</button>
+                    <button class="btn btn-gold" id="showYn2Btn">👀 Show Answers</button>
+                    <button class="btn btn-glass" id="resetYn2Btn">🔄 Reset</button>
+                </div>
+                <div class="feedback-box" id="yn2Feedback">
+                    ✍️ Напечатай ответ в поле и нажми <span class="highlight">Check</span>!
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ 3. PARK SCENE + CORRECT THE SENTENCES ============ -->
+        <div class="tab-content" id="tab-park">
+            <div class="prep-scene">
+                <div class="section-title">Read, write and colour</div>
+
+                <div class="park-text">
+                    Jane, Fred, Vicky, Paul, Sally, Beth and Zak are in the park now. Sally's riding a black bike. Fred's flying a big orange kite. Beth's playing football with a small brown dog. The dog's getting the purple ball. Zak's sitting with a fat grey dog. Vicky likes dogs. She's taking photographs with a green camera. Paul's playing hockey with his cousin, Jane. She's wearing a new yellow T-shirt and old blue jeans.
+                </div>
+
+                <div class="park-scene" id="parkScene">
+                    <img class="park-img" src="park.png" alt="Park scene"
+                         onerror="this.parentNode.innerHTML='<p style=\'color:#ffd200;text-align:center;font-weight:700;padding:30px;\'>⚠ Не найдена картинка <b>park.png</b>. Положите её рядом с HTML-файлом.</p>'">
+
+                    <!-- Fred -->
+                    <div class="park-overlay" style="top: 6%;  left: 40%;">
+                        <input class="overlay-input" data-answer="Fred" placeholder="name">
+                    </div>
+
+                    <!-- Vicky -->
+                    <div class="park-overlay" style="top: 48%; left: 18%;">
+                        <input class="overlay-input" data-answer="Vicky" placeholder="name">
+                    </div>
+
+                    <!-- Sally -->
+                    <div class="park-overlay" style="top: 50%; left: 46%;">
+                        <input class="overlay-input" data-answer="Sally" placeholder="name">
+                    </div>
+
+                    <!-- Zak -->
+                    <div class="park-overlay" style="top: 69%; left: 21%;">
+                        <input class="overlay-input" data-answer="Zak" placeholder="name">
+                    </div>
+
+                    <!-- Paul -->
+                    <div class="park-overlay" style="top: 25%; left: 66%;">
+                        <input class="overlay-input" data-answer="Paul" placeholder="name">
+                    </div>
+
+                    <!-- Jane -->
+                    <div class="park-overlay" style="top: 25%; left: 78%;">
+                        <input class="overlay-input" data-answer="Jane" placeholder="name">
+                    </div>
+
+                    <!-- Beth -->
+                    <div class="park-overlay" style="top: 62%; left: 86%;">
+                        <input class="overlay-input" data-answer="Beth" placeholder="name">
+                    </div>
+
+                    <!-- Dog -->
+                    <div class="park-overlay" style="top: 89.5%; left: 69.5%;">
+                        <input class="overlay-input" data-answer="Dog" placeholder="name">
+                    </div>
+                </div>
+
+                <div class="btn-group" style="margin-top: 20px;">
+                    <button class="btn btn-blue" id="checkParkBtn">✅ Check</button>
+                    <button class="btn btn-gold" id="showParkBtn">👀 Show Answers</button>
+                    <button class="btn btn-glass" id="resetParkBtn">🔄 Reset</button>
+                </div>
+                <div class="feedback-box" id="parkFeedback">
+                    👆 Прочитай текст, впиши имена и нажми <span class="highlight">Check</span>!
+                </div>
+            </div>
+
+            <!-- ===== Correct the sentences ===== -->
+            <div class="prep-scene">
+                <div class="section-title">2. Look at the picture. Correct the sentences.</div>
+
+                <div class="corr-list" id="corrList"></div>
+
+                <div class="btn-group" style="margin-top: 20px;">
+                    <button class="btn btn-blue" id="checkCorrBtn">✅ Check</button>
+                    <button class="btn btn-gold" id="showCorrBtn">👀 Show Answers</button>
+                    <button class="btn btn-glass" id="resetCorrBtn">🔄 Reset</button>
+                </div>
+                <div class="feedback-box" id="corrFeedback">
+                    ✍️ Исправь предложения и нажми <span class="highlight">Check</span>!
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ 4. SONG ============ -->
+        <div class="tab-content" id="tab-song">
+            <div class="image-container">
+                <img src="picture.png" alt="Hello Unit, Page 7">
+            </div>
+
+            <div class="prep-scene">
+                <div class="section-title">🎧 Listen and sing the song</div>
+
+                <div class="audio-control">
+                    <button class="btn btn-blue" id="songAudioBtn" style="font-size: 1.2rem; padding: 14px 36px;">
+                        🔊 Listen
+                    </button>
+                    <div class="audio-status" id="songAudioStatus">Click "Listen" to play the song (06.mp3)</div>
+                </div>
+
+                <div class="lyrics">I've got an old bike
+And I'm riding it.
+He's got a big kite
+And he's flying it.
+She's got a small car
+And she's driving it.
+We've got toys!
+
+I've got a fat doll
+And it's talking.
+He's got a robot
+And it's walking.
+She's got a new ball
+And it's bouncing.
+We've got toys!</div>
+            </div>
+        </div>
+
+        <!-- ============ 5. YES / NO ============ -->
+        <div class="tab-content" id="tab-yesno">
+            <div class="image-container">
+                <img src="picture.png" alt="Hello Unit, Page 7">
+            </div>
+
+            <div class="prep-scene">
+                <div class="section-title">Say 'yes' or 'no'</div>
+                <div class="yn-list" id="ynList"></div>
+
+                <div class="btn-group" style="margin-top: 20px;">
+                    <button class="btn btn-gold" id="resetYnBtn">🔄 Reset</button>
+                </div>
+                <div class="feedback-box" id="ynSummary">
+                    👆 Look at the picture and choose <span class="highlight">Yes</span> or <span class="highlight">No</span>!
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ 6. PRESENT CONTINUOUS ============ -->
+        <div class="tab-content" id="tab-pc">
+            <div class="image-container">
+                <img src="picture.png" alt="Hello Unit, Page 7">
+            </div>
+
+            <div class="prep-scene">
+                <div class="section-title">What is he / she doing?</div>
+
+                <div class="word-bank">
+                    <span>riding a bike</span>
+                    <span>flying a kite</span>
+                    <span>driving a car</span>
+                    <span>holding a doll</span>
+                    <span>feeding a dog</span>
+                    <span>talking</span>
+                </div>
+
+                <div class="pc-list">
+                    <div class="pc-row">
+                        <span class="q-text">1. What is Jim doing?</span>
+                        <input type="text" class="input-field" id="pc_1">
+                    </div>
+                    <div class="pc-row">
+                        <span class="q-text">2. What is Mary doing?</span>
+                        <input type="text" class="input-field" id="pc_2">
+                    </div>
+                    <div class="pc-row">
+                        <span class="q-text">3. What is Fred doing?</span>
+                        <input type="text" class="input-field" id="pc_3">
+                    </div>
+                    <div class="pc-row">
+                        <span class="q-text">4. What is Paul doing?</span>
+                        <input type="text" class="input-field" id="pc_4">
+                    </div>
+                    <div class="pc-row">
+                        <span class="q-text">5. What is Sally doing?</span>
+                        <input type="text" class="input-field" id="pc_5">
+                    </div>
+                </div>
+
+                <div class="btn-group" style="margin-top: 20px;">
+                    <button class="btn btn-blue" id="checkPcBtn">✅ Check</button>
+                    <button class="btn btn-gold" id="showPcBtn">👀 Show Answers</button>
+                    <button class="btn btn-glass" id="resetPcBtn">🔄 Reset</button>
+                </div>
+                <div class="feedback-box" id="pcFeedback">
+                    ✍️ Answer the questions and click <span class="highlight">Check</span>!
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            ✨ Interactive page for online lessons 🔊
+        </div>
+    </div>
+
+    <script>
+        // ЗВУКОВЫЕ ЭФФЕКТЫ
+        class SoundFX {
+            constructor() {
+                this.ctx = null;
+                try { this.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
+            }
+            play(type) {
+                if (!this.ctx) return;
+                try {
+                    if (type === 'correct') {
+                        [523, 659, 784].forEach((freq, i) => {
+                            const o = this.ctx.createOscillator();
+                            const g = this.ctx.createGain();
+                            o.connect(g); g.connect(this.ctx.destination);
+                            g.gain.value = 0.15;
+                            g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.2 + i * 0.1);
+                            o.type = 'sine';
+                            o.frequency.value = freq;
+                            o.start(this.ctx.currentTime + i * 0.1);
+                            o.stop(this.ctx.currentTime + 0.2 + i * 0.1);
+                        });
+                    } else if (type === 'wrong') {
+                        const osc = this.ctx.createOscillator();
+                        const gain = this.ctx.createGain();
+                        osc.connect(gain); gain.connect(this.ctx.destination);
+                        gain.gain.value = 0.2;
+                        gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.3);
+                        osc.type = 'sawtooth';
+                        osc.frequency.setValueAtTime(400, this.ctx.currentTime);
+                        osc.frequency.exponentialRampToValueAtTime(200, this.ctx.currentTime + 0.25);
+                        osc.start(this.ctx.currentTime);
+                        osc.stop(this.ctx.currentTime + 0.3);
+                    } else if (type === 'reveal') {
+                        [523, 587, 659, 784].forEach((freq, i) => {
+                            const o = this.ctx.createOscillator();
+                            const g = this.ctx.createGain();
+                            o.connect(g); g.connect(this.ctx.destination);
+                            g.gain.value = 0.1;
+                            g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.15 + i * 0.08);
+                            o.type = 'sine';
+                            o.frequency.value = freq;
+                            o.start(this.ctx.currentTime + i * 0.08);
+                            o.stop(this.ctx.currentTime + 0.15 + i * 0.08);
+                        });
+                    }
+                } catch (e) {}
+            }
+        }
+        const sound = new SoundFX();
+        document.addEventListener('click', () => {
+            if (sound.ctx && sound.ctx.state === 'suspended') sound.ctx.resume();
+        }, { once: true });
+
+        // ВКЛАДКИ
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const target = this.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(c => {
+                    c.classList.toggle('active', c.id === target);
+                });
+            });
+        });
+
+        // ============================================================
+        //  TASK 1: MATCH AND WRITE
+        // ============================================================
+        const silData = [
+            { num: 1, options: ["Simon", "Meera"],  correct: "Simon"  },
+            { num: 2, options: ["Stella", "Lenny"], correct: "Lenny"  },
+            { num: 3, options: ["Suzy", "Alex"],    correct: "Alex"   },
+            { num: 4, options: ["Stella", "Lenny"], correct: "Stella" },
+            { num: 5, options: ["Meera", "Suzy"],   correct: "Meera"  },
+            { num: 6, options: ["Suzy", "Alex"],    correct: "Suzy"   }
+        ];
+
+        const silGrid = document.getElementById('silGrid');
+        const silFeedback = document.getElementById('silFeedback');
+
+        function buildSil() {
+            silGrid.innerHTML = '';
+            silData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'sil-card';
+                card.dataset.correct = item.correct;
+                card.innerHTML = `
+                    <div class="sil-num">${item.num}</div>
+                    <select class="sil-select">
+                        <option value="">-- name --</option>
+                        ${item.options.map(o => `<option value="${o}">${o}</option>`).join('')}
+                    </select>
+                `;
+                silGrid.appendChild(card);
+            });
+        }
+        buildSil();
+
+        document.getElementById('checkSilBtn').addEventListener('click', () => {
+            let allCorrect = true;
+            silGrid.querySelectorAll('.sil-card').forEach(card => {
+                const sel = card.querySelector('.sil-select');
+                sel.classList.remove('correct', 'wrong');
+                if (sel.value === card.dataset.correct) {
+                    sel.classList.add('correct');
+                } else {
+                    sel.classList.add('wrong');
+                    allCorrect = false;
+                }
+            });
+            if (allCorrect) {
+                silFeedback.innerHTML = `✅ <span class="correct">All correct! Well done!</span>`;
+                sound.play('correct');
+            } else {
+                silFeedback.innerHTML = `❌ <span class="wrong">Some names are wrong. Try again!</span>`;
+                sound.play('wrong');
+            }
+        });
+
+        document.getElementById('resetSilBtn').addEventListener('click', () => {
+            buildSil();
+            silFeedback.innerHTML = `👆 Выбери имя для каждого силуэта и нажми <span class="highlight">Check</span>!`;
+        });
+
+        // ============================================================
+        //  TASK 2: ANSWER THE QUESTIONS
+        // ============================================================
+        const yn2Data = [
+            { q: "Is Simon playing a computer game?",  full: "Yes, he is.",     keys: ["yes", "he"] },
+            { q: "Is Stella painting?",                full: "No, she isn't.",  keys: ["no", "she"] },
+            { q: "Is Lenny playing badminton?",        full: "No, he isn't.",   keys: ["no", "he"]  },
+            { q: "Is Suzy reading?",                   full: "No, she isn't.",  keys: ["no", "she"] },
+            { q: "Is Meera riding a bike?",            full: "Yes, she is.",    keys: ["yes", "she"] },
+            { q: "Is Alex reading a comic?",           full: "Yes, he is.",     keys: ["yes", "he"] }
+        ];
+
+        const yn2List = document.getElementById('yn2List');
+        const yn2Feedback = document.getElementById('yn2Feedback');
+
+        function buildYn2() {
+            yn2List.innerHTML = '';
+            yn2Data.forEach((item, i) => {
+                const row = document.createElement('div');
+                row.className = 'yn2-row';
+                row.dataset.idx = i;
+                row.innerHTML = `
+                    <span class="yn2-num">${i + 1}</span>
+                    <span class="yn2-text">${item.q}</span>
+                    <input type="text" class="yn2-input" placeholder="Type your answer...">
+                `;
+                yn2List.appendChild(row);
+            });
+        }
+        buildYn2();
+
+        function normYN2(s) {
+            return s.toLowerCase()
+                .replace(/[’‘`]/g, "'")
+                .replace(/[.,!?;:]/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        document.getElementById('checkYn2Btn').addEventListener('click', () => {
+            let allCorrect = true;
+            yn2List.querySelectorAll('.yn2-row').forEach(row => {
+                const idx = +row.dataset.idx;
+                const input = row.querySelector('.yn2-input');
+                const user = normYN2(input.value);
+                const keys = yn2Data[idx].keys;
+                const ok = user.length > 0 && keys.every(k => user.includes(k));
+                input.classList.remove('correct', 'wrong');
+                if (ok) input.classList.add('correct');
+                else { input.classList.add('wrong'); allCorrect = false; }
+            });
+            if (allCorrect) {
+                yn2Feedback.innerHTML = `✅ <span class="correct">All correct! Excellent work!</span>`;
+                sound.play('correct');
+            } else {
+                yn2Feedback.innerHTML = `❌ <span class="wrong">Some answers need checking. Look at the picture again!</span>`;
+                sound.play('wrong');
+            }
+        });
+
+        document.getElementById('showYn2Btn').addEventListener('click', () => {
+            yn2List.querySelectorAll('.yn2-row').forEach(row => {
+                const idx = +row.dataset.idx;
+                const input = row.querySelector('.yn2-input');
+                input.value = yn2Data[idx].full;
+                input.classList.add('correct');
+                input.classList.remove('wrong');
+            });
+            yn2Feedback.innerHTML = `👀 <span class="highlight">Answers shown!</span>`;
+            sound.play('reveal');
+        });
+
+        document.getElementById('resetYn2Btn').addEventListener('click', () => {
+            buildYn2();
+            yn2Feedback.innerHTML = `✍️ Напечатай ответ в поле и нажми <span class="highlight">Check</span>!`;
+        });
+
+        // ============================================================
+        //  TASK 3: PARK SCENE
+        // ============================================================
+        const parkScene = document.getElementById('parkScene');
+        const parkFeedback = document.getElementById('parkFeedback');
+
+        function normPark(s) {
+            return s.toLowerCase()
+                .replace(/[.,!?;:]/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        document.getElementById('checkParkBtn').addEventListener('click', () => {
+            let allCorrect = true;
+            parkScene.querySelectorAll('.overlay-input').forEach(inp => {
+                const user = normPark(inp.value);
+                const correct = normPark(inp.dataset.answer);
+                inp.classList.remove('correct', 'wrong');
+                if (user === correct) {
+                    inp.classList.add('correct');
+                } else {
+                    inp.classList.add('wrong');
+                    allCorrect = false;
+                }
+            });
+            if (allCorrect) {
+                parkFeedback.innerHTML = `✅ <span class="correct">All correct! Well done!</span>`;
+                sound.play('correct');
+            } else {
+                parkFeedback.innerHTML = `❌ <span class="wrong">Some names are wrong. Read the text again!</span>`;
+                sound.play('wrong');
+            }
+        });
+
+        document.getElementById('showParkBtn').addEventListener('click', () => {
+            parkScene.querySelectorAll('.overlay-input').forEach(inp => {
+                inp.value = inp.dataset.answer;
+                inp.classList.add('correct');
+                inp.classList.remove('wrong');
+            });
+            parkFeedback.innerHTML = `👀 <span class="highlight">Answers shown!</span>`;
+            sound.play('reveal');
+        });
+
+        document.getElementById('resetParkBtn').addEventListener('click', () => {
+            parkScene.querySelectorAll('.overlay-input').forEach(inp => {
+                inp.value = '';
+                inp.classList.remove('correct', 'wrong');
+            });
+            parkFeedback.innerHTML = `👆 Прочитай текст, впиши имена и нажми <span class="highlight">Check</span>!`;
+        });
+
+        // ============================================================
+        //  TASK 4: CORRECT THE SENTENCES
+        //  Правильные ответы — по картинке парка.
+        // ============================================================
+        const corrData = [
+            { text: "Paul's flying a kite.",              full: "No. Fred's flying a kite.",              keys: ["fred"] },
+            { text: "Beth's got a camera.",               full: "No. Vicky's got a camera.",              keys: ["vicky"] },
+            { text: "Zak's playing hockey.",              full: "No. Paul's playing hockey.",             keys: ["paul"] },
+            { text: "Vicky's got a bike.",                full: "No. Sally's got a bike.",                keys: ["sally"] },
+            { text: "Fred and Sally have got dogs.",      full: "No. Beth and Zak have got dogs.",        keys: ["beth", "zak"] },
+            { text: "Jane's getting the ball.",           full: "No. The dog's getting the ball.",        keys: ["dog"] }
+        ];
+
+        const corrList = document.getElementById('corrList');
+        const corrFeedback = document.getElementById('corrFeedback');
+
+        function buildCorr() {
+            corrList.innerHTML = '';
+            corrData.forEach((item, i) => {
+                const row = document.createElement('div');
+                row.className = 'corr-row';
+                row.dataset.idx = i;
+                row.innerHTML = `
+                    <span class="corr-num">${i + 1}</span>
+                    <span class="corr-text">${item.text}</span>
+                    <input type="text" class="corr-input" placeholder="Type the correction...">
+                `;
+                corrList.appendChild(row);
+            });
+        }
+        buildCorr();
+
+        function normCorr(s) {
+            return s.toLowerCase()
+                .replace(/[’‘`]/g, "'")
+                .replace(/[.,!?;:]/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        document.getElementById('checkCorrBtn').addEventListener('click', () => {
+            let allCorrect = true;
+            corrList.querySelectorAll('.corr-row').forEach(row => {
+                const idx = +row.dataset.idx;
+                const input = row.querySelector('.corr-input');
+                const user = normCorr(input.value);
+                const keys = corrData[idx].keys;
+                const ok = user.length > 0 && keys.every(k => user.includes(k));
+                input.classList.remove('correct', 'wrong');
+                if (ok) input.classList.add('correct');
+                else { input.classList.add('wrong'); allCorrect = false; }
+            });
+            if (allCorrect) {
+                corrFeedback.innerHTML = `✅ <span class="correct">All correct! Excellent work!</span>`;
+                sound.play('correct');
+            } else {
+                corrFeedback.innerHTML = `❌ <span class="wrong">Some corrections need checking. Look at the picture again!</span>`;
+                sound.play('wrong');
+            }
+        });
+
+        document.getElementById('showCorrBtn').addEventListener('click', () => {
+            corrList.querySelectorAll('.corr-row').forEach(row => {
+                const idx = +row.dataset.idx;
+                const input = row.querySelector('.corr-input');
+                input.value = corrData[idx].full;
+                input.classList.add('correct');
+                input.classList.remove('wrong');
+            });
+            corrFeedback.innerHTML = `👀 <span class="highlight">Answers shown!</span>`;
+            sound.play('reveal');
+        });
+
+        document.getElementById('resetCorrBtn').addEventListener('click', () => {
+            buildCorr();
+            corrFeedback.innerHTML = `✍️ Исправь предложения и нажми <span class="highlight">Check</span>!`;
+        });
+
+        // ============================================================
+        //  AUDIO 06.mp3
+        // ============================================================
+        const songAudioBtn = document.getElementById('songAudioBtn');
+        const songAudioStatus = document.getElementById('songAudioStatus');
+        let songPlayer = null;
+        let songIsPlaying = false;
+
+        songAudioBtn.addEventListener('click', function () {
+            if (songPlayer && songIsPlaying) {
+                songPlayer.pause();
+                songIsPlaying = false;
+                songAudioStatus.textContent = '⏸️ Paused';
+                this.textContent = '▶️ Play';
+                return;
+            }
+            if (songPlayer && !songIsPlaying && songPlayer.currentTime > 0) {
+                songPlayer.play();
+                songIsPlaying = true;
+                songAudioStatus.textContent = '🎧 Playing...';
+                this.textContent = '⏸️ Pause';
+                return;
+            }
+            songPlayer = new Audio('06.mp3');
+            songAudioStatus.textContent = '⏳ Loading audio...';
+            this.textContent = '⏸️ Pause';
+
+            songPlayer.play().then(() => {
+                songIsPlaying = true;
+                songAudioStatus.textContent = '🎧 Playing... Sing along!';
+            }).catch(() => {
+                songAudioStatus.textContent = '❌ Audio file not found. Check "06.mp3"';
+                this.textContent = '🔊 Listen';
+            });
+
+            songPlayer.addEventListener('ended', function () {
+                songIsPlaying = false;
+                songAudioStatus.textContent = '✅ Finished!';
+                songAudioBtn.textContent = '🔊 Listen';
+                songPlayer.currentTime = 0;
+            });
+            songPlayer.addEventListener('error', function () {
+                songAudioStatus.textContent = '❌ Error playing audio.';
+                songAudioBtn.textContent = '🔊 Listen';
+                songIsPlaying = false;
+            });
+        });
+
+        // ============================================================
+        //  YES / NO
+        // ============================================================
+        const ynData = [
+            { q: "Jim's got a robot.",         a: "no"  },
+            { q: "Fred's riding his bike.",    a: "yes" },
+            { q: "Vicky's driving her car.",   a: "yes" },
+            { q: "The robot's running.",       a: "no"  },
+            { q: "Fred's got a red bike.",     a: "yes" },
+            { q: "Paul's flying a kite.",      a: "no"  },
+            { q: "Sally's got a doll.",        a: "yes" },
+            { q: "Mary's got a blue ball.",    a: "no"  }
+        ];
+
+        const ynList = document.getElementById('ynList');
+        const ynSummary = document.getElementById('ynSummary');
+
+        function buildYn() {
+            ynList.innerHTML = '';
+            ynData.forEach((item, i) => {
+                const row = document.createElement('div');
+                row.className = 'yn-row';
+                row.dataset.correct = item.a;
+                row.innerHTML = `
+                    <span class="yn-num">${i + 1}</span>
+                    <span class="yn-text">${item.q}</span>
+                    <button class="yn-btn" data-ans="yes">Yes</button>
+                    <button class="yn-btn" data-ans="no">No</button>
+                    <span class="yn-feedback"></span>
+                `;
+                ynList.appendChild(row);
+            });
+        }
+        buildYn();
+
+        ynList.addEventListener('click', e => {
+            if (!e.target.classList.contains('yn-btn')) return;
+            const row = e.target.closest('.yn-row');
+            const correct = row.dataset.correct;
+            const chosen = e.target.dataset.ans;
+            const fb = row.querySelector('.yn-feedback');
+
+            row.querySelectorAll('.yn-btn').forEach(b => {
+                b.classList.remove('active-yes', 'active-no');
+            });
+            e.target.classList.add(chosen === 'yes' ? 'active-yes' : 'active-no');
+
+            if (chosen === correct) {
+                fb.textContent = '✔';
+                fb.className = 'yn-feedback ok';
+                sound.play('correct');
+            } else {
+                fb.textContent = '✘';
+                fb.className = 'yn-feedback err';
+                sound.play('wrong');
+            }
+
+            const all = ynList.querySelectorAll('.yn-row');
+            const done = ynList.querySelectorAll('.yn-feedback.ok').length;
+            if (done === all.length) {
+                ynSummary.innerHTML = `🎉 <span class="correct">All correct! Great job!</span>`;
+            } else {
+                ynSummary.innerHTML = `Progress: <span class="highlight">${done} / ${all.length}</span>`;
+            }
+        });
+
+        document.getElementById('resetYnBtn').addEventListener('click', () => {
+            buildYn();
+            ynSummary.innerHTML = `👆 Look at the picture and choose <span class="highlight">Yes</span> or <span class="highlight">No</span>!`;
+        });
+
+        // ============================================================
+        //  PRESENT CONTINUOUS
+        // ============================================================
+        const pcAnswers = {
+            pc_1: { keywords: ['flying', 'kite'],  full: "He's flying a kite." },
+            pc_2: { keywords: ['driving', 'car'],  full: "She's driving a car." },
+            pc_3: { keywords: ['riding', 'bike'],  full: "He's riding a bike." },
+            pc_4: { keywords: ['feeding', 'dog'],  full: "He's feeding a dog." },
+            pc_5: { keywords: ['holding', 'doll'], full: "She's holding a doll." }
+        };
+
+        const pcFeedback = document.getElementById('pcFeedback');
+
+        document.getElementById('checkPcBtn').addEventListener('click', () => {
+            let allCorrect = true;
+            for (let key in pcAnswers) {
+                const input = document.getElementById(key);
+                const val = input.value.trim().toLowerCase();
+                const isOk = val.length > 0 && pcAnswers[key].keywords.every(k => val.includes(k));
+                if (isOk) {
+                    input.classList.add('correct');
+                    input.classList.remove('wrong');
+                } else {
+                    input.classList.add('wrong');
+                    input.classList.remove('correct');
+                    allCorrect = false;
+                }
+            }
+            if (allCorrect) {
+                pcFeedback.innerHTML = `✅ <span class="correct">All correct! Excellent work!</span>`;
+                sound.play('correct');
+            } else {
+                pcFeedback.innerHTML = `❌ <span class="wrong">Some answers need checking. Look at the picture again!</span>`;
+                sound.play('wrong');
+            }
+        });
+
+        document.getElementById('showPcBtn').addEventListener('click', () => {
+            for (let key in pcAnswers) {
+                const input = document.getElementById(key);
+                input.value = pcAnswers[key].full;
+                input.classList.add('correct');
+                input.classList.remove('wrong');
+            }
+            pcFeedback.innerHTML = `👀 <span class="highlight">Answers shown!</span>`;
+            sound.play('reveal');
+        });
+
+        document.getElementById('resetPcBtn').addEventListener('click', () => {
+            for (let key in pcAnswers) {
+                const input = document.getElementById(key);
+                input.value = '';
+                input.classList.remove('correct', 'wrong');
+            }
+            pcFeedback.innerHTML = `✍️ Answer the questions and click <span class="highlight">Check</span>!`;
+        });
+    </script>
+
+</body>
+</html>
